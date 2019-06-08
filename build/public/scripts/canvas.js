@@ -10,14 +10,14 @@ var stage = new Konva.Stage({
 var layer = new Konva.Layer();
 stage.add(layer);
 let searchByImageUrl = "https://www.google.com/searchbyimage?hl=en-US&image_url=";
-let baseUrl = "localhost:8081/";
+let baseUrl = "https://meme-242116.appspot.com";
 
 
 // Finding the source image url from drag start event
 document.addEventListener('dragstart', function(e) {
   //console.log(e.target)
   //console.log(e.target.src)
-  $.ajax(baseUrl + 'image-search/' + e.target.src)
+  $.ajax(baseUrl + '/image-search?url=' + e.target.src)
   .done(data => console.log(data))
   .fail((xhr, status) => console.log('error:', status));
 

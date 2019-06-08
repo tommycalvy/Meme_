@@ -1,12 +1,17 @@
-runtime: go
+runtime: go112
+
 
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+- url: /favicon.ico
+- static_files: public/images/favicon.ico
+- upload: public/images/favicon.ico
 
-- url: /static
-  static_dir: static
+- url: /favicon.png
+- static_files: public/images/favicon.png
+- upload: public/images/favicon.png
+
+- url: /public
+  static_dir: public
 
 - url: /.*
-  script: _go_app
+  script: auto

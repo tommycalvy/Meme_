@@ -3,12 +3,12 @@ runtime: go112
 
 handlers:
 - url: /favicon.ico
-- static_files: public/images/favicon.ico
-- upload: public/images/favicon.ico
+  static_files: public/images/favicon.ico
+  upload: public/images/favicon.ico
 
 - url: /favicon.png
-- static_files: public/images/favicon.png
-- upload: public/images/favicon.png
+  static_files: public/images/favicon.png
+  upload: public/images/favicon.png
 
 - url: /public
   static_dir: public

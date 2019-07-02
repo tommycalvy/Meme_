@@ -17,10 +17,6 @@ let baseUrl = "https://meme-242116.appspot.com";
 document.addEventListener('dragstart', function(e) {
   //console.log(e.target)
   //console.log(e.target.src)
-  $.ajax(baseUrl + '/image-search?url=' + e.target.src)
-  .done(data => console.log(data))
-  .fail((xhr, status) => console.log('error:', status));
-
 
   e.dataTransfer.effectAllowed = 'copy';
   console.log(e);
@@ -82,6 +78,19 @@ stage.on('click tap', function(e) {
   layer.draw();
 });
 
-stage.on('transformstart', function() {
-  console.log('transform start');
+$( "#rev-img-but" ).click(function() {
+  var imgSrc = stage.find('Transformer');
+  console.log(imgSrc[0]._node.attrs.image.src);
+  var newTab = window.open('https://www.google.com/searchbyimage?igu=1&hl=en-US&image_url=' + imgSrc[0]._node.attrs.image.src, '_blank');
+  if (newTab) {
+    newTab.focus();
+  } else {
+    //TODO: handle error
+  }
+});
+
+$(document).on('click', 'a', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    window.open(url, '_blank');
 });
